@@ -11,7 +11,7 @@ Download the `RunInPowershell.ps1` file, and run it in a powershell window in ad
 
 * Enables Dark Mode
 
-* Opens the display `settings`, to set display at 100% scaling
+* Opens the `display settings`, to set display at 100% scaling
 
 * Opens `Performance Settings`, to set to maximum performance
 
