@@ -48,7 +48,6 @@ Get-AppxPackage *Mahjong* -AllUsers | Remove-AppxPackage;
 testLast
 
 
-
 echo "Removing: LinkedInForWindows";
 Get-AppxPackage 7EE7776C.LinkedInforWindows | Remove-AppxPackage;
 testLast
@@ -90,6 +89,20 @@ Get-AppxPackage *Deezer* -AllUsers | Remove-AppxPackage;
 testLast
 
 # ----
+# Creating custom poweroff/reboot/sleep scripts
+$SLEEP = "rundll32.exe powrprof.dll,SetSuspendState 0,1,0"
+$SLEEP | Set-Content $HOME\Documents\"Sleep.bat"
+
+$POWEROFF = "shutdown -s -t 0"
+$POWEROFF | Set-Content $HOME\Documents\"Poweroff.bat"
+$POWEROFF | Set-Content $HOME\Documents\"Shutdown.bat"
+
+
+$REBOOT = "shutdown -r -t 0"
+$REBOOT | Set-Content $Home\Documents\"Reboot.bat"
+
+
+# ---
 
 $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
 Set-ItemProperty $key Hidden 1
@@ -115,4 +128,4 @@ echo "opening battery settings"
 control powercfg.cpl
 
 echo "opening nitnite"
-start microsoft-edge:https://ninite.com/.net4.8-adoptjavax11-chrome-foobar-klitecodecs-spotify-vlc-winrar-winscp/
+start microsoft-edge:https://ninite.com/.net4.8-adoptjavax11-chrome-foobar-spotify-vlc-winrar-winscp-everything-greenshot/
