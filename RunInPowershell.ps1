@@ -127,5 +127,15 @@ echo " [ ]`n [ ]`n [x]`n [x]`n [ ]`n [x]`n [x]`n [ ]`n [ ]`n [ ]`n [x]`n [ ]`n [
 echo "opening battery settings"
 control powercfg.cpl
 
-echo "opening nitnite"
-start microsoft-edge:https://ninite.com/.net4.8-adoptjavax11-chrome-foobar-spotify-vlc-winrar-winscp-everything-greenshot/
+
+#Download and start Ninite:
+echo "Initiating Ninite"
+
+$URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-everything-foobar-greenshot-klitecodecs-spotify-vlc-winrar-winscp/ninite.exe"
+$DATE = Get-Date -Format "MMddyy"
+$FILENAME = "$DATE-Ninite_JM_Sane_Defaults" 
+$OUTPUT = "$HOME\Downloads\$FILENAME.exe"
+
+Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
+start $HOME\Downloads\$FILENAME
+
