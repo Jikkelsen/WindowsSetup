@@ -4,6 +4,29 @@ Personalized script to setup Windows Computers.
 Download the `RunInPowershell.ps1` file, and run it in a powershell window in administratormode. It will do the following:
 
 * Remove a lot of Windows bloat 
+  * Bing Weather
+  * Bing News
+  * Bing Sports
+  * Candy Crush Saga
+  * Candy Crush Friends
+  * Bubble Witch 3 Saga
+  * Microsoft Solitare Collection
+  * Mahjong
+  * LinkedIn For Windows
+  * Your Phone
+  * Alarms And Clocks
+  * Windows Mail
+  * OfficeHub
+  * Get Started
+  * Groove Music
+  * Maps
+  * Netflix
+  * Deezer music
+  
+* Creates Scripts for Common tasks
+  * `Reboot.bat`
+  * `Poweroff.bat`
+  * `Shutdown.bat`
 
 * Shows hidden files in Explorer
 
@@ -17,4 +40,14 @@ Download the `RunInPowershell.ps1` file, and run it in a powershell window in ad
 
 * Opens `Battery Settings`, to do the same as above
 
-* Opens `Ninite` set to download preferred programs. Waiting for Windows own package manager to deprecate this step. 
+* Downloads the following programs from Ninite.
+  * Chrome
+  * Voidtools Everything
+  * Foobar
+  * Google Backup And Sync
+  * Greenshot
+  * Putty
+  * Spotify
+  * VLC
+  * Winrar
+  * WinSCP
