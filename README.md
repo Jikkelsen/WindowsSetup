@@ -51,3 +51,5 @@ Download the `RunInPowershell.ps1` file, and run it in a powershell window in ad
   * VLC
   * Winrar
   * WinSCP
+  * Skype
+  * Notepad ++

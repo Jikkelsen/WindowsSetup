@@ -131,7 +131,7 @@ control powercfg.cpl
 #Download and start Ninite:
 echo "Initiating Ninite"
 
-$URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-everything-foobar-greenshot-spotify-vlc-winrar-winscp/ninite.exe"
+$URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-everything-foobar-greenshot-spotify-vlc-winrar-winscp-skype-notepadplusplus/ninite.exe"
 $DATE = Get-Date -Format "MMddyy"
 $FILENAME = "$DATE-Ninite_JM_Sane_Defaults" 
 $OUTPUT = "$HOME\Downloads\$FILENAME.exe"
