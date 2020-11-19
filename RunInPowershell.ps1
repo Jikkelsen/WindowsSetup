@@ -8,7 +8,7 @@ function testLast {
 	}
 }
 
-# Ægte kode
+# Ã†gte kode
 
 # Microsoft
 
@@ -135,6 +135,15 @@ $URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-everything-foobar-greensh
 $DATE = Get-Date -Format "MMddyy"
 $FILENAME = "$DATE-Ninite_JM_Sane_Defaults" 
 $OUTPUT = "$HOME\Downloads\$FILENAME.exe"
+
+Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
+start $HOME\Downloads\$FILENAME
+
+
+#Download and start Brave browser installation:
+Write-Output "Installing Brave Browser"
+$URL = "https://laptop-updates.brave.com/latest/winx64"
+$FILENAME = "$DATE-Brave-Setup.exe"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
 start $HOME\Downloads\$FILENAME
