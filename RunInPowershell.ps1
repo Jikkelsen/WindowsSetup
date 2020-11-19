@@ -122,8 +122,7 @@ start ms-settings:display
 
 Write-Output "opening performance settings"
 SystemPropertiesPerformance.exe
-Write-Output " [ ]`n [ ]`n [x]`n [x]`n [ ]`n [x]`n [x]`n [ ]`n [ ]`n [ ]`n [x]`n [ ]`n [ ]`n [x]`n [x]`n [x]`n [ ]`n"
-
+Write-Output "--- USE THESE SETTINGS ---`n`n [ ]`tAnimate Controls and elements inside windows`n [ ]`tAnimate windwos when minimising and maximising`n [x]`tAnimations in the taskbar`n [x]`tEnable Peek`n [ ]`tFade or slide menus into view`n [x]`tFade or slide ToolTips into view`n [x]`tFade out menu items after clicking`n [ ]`tSave taskbar thumbnail previews`n [ ]`tShow shadows under mouse pointer`n [ ]`tShow shadows under windows`n [x]`tShow thumbnails instead of icons`n [ ]`tShow translucendt selection rectangle`n [ ]`tShow window content when dragging`n [x]`tSlide open combo boxes`n [x]`tSmooth edges of screen fonts`n [x]`tSmooth-scroll list boxes`n [ ]`tUse drop shadows for icon labels on the desktop`n"
 Write-Output "opening battery settings"
 control powercfg.cpl
 
