@@ -13,78 +13,78 @@ function testLast {
 # Microsoft
 
 # Bing
-echo "Removing: BingWeather";
+Write-Output "Removing: BingWeather";
 Get-AppxPackage Microsoft.BingWeather | Remove-AppxPackage;
 testLast
 
-echo "Removing: Bing News";
+Write-Output "Removing: Bing News";
 Get-AppxPackage Microsoft.BingNews | Remove-AppxPackage;
 testLast
 
-echo "Removing: Bing Sports";
+Write-Output "Removing: Bing Sports";
 Get-AppxPackage Microsoft.BingSports | Remove-AppxPackage;
 testLast
 
 
 # Games
-echo "Removing: Candy crush saga";
+Write-Output "Removing: Candy crush saga";
 Get-AppxPackage king.com.CandyCrushSaga | Remove-AppxPackage;
 testLast
 
-echo "Removing: Candy crush friends";
+Write-Output "Removing: Candy crush friends";
 Get-AppxPackage king.com.CandyCrushFriends | Remove-AppxPackage;
 testLast
 
-echo "Removing: Bubble witch 3 saga";
+Write-Output "Removing: Bubble witch 3 saga";
 Get-AppxPackage king.com.BubbleWitch3Saga | Remove-AppxPackage;
 testLast;
 
-echo "Removing: Microsoft Solitaire Collection";
+Write-Output "Removing: Microsoft Solitaire Collection";
 Get-AppxPackage Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage;
 testLast
 
-echo "Removing: Mahjong";
+Write-Output "Removing: Mahjong";
 Get-AppxPackage *Mahjong* -AllUsers | Remove-AppxPackage;
 testLast
 
 
-echo "Removing: LinkedInForWindows";
+Write-Output "Removing: LinkedInForWindows";
 Get-AppxPackage 7EE7776C.LinkedInforWindows | Remove-AppxPackage;
 testLast
 
-echo "Removing: Your Phone";
+Write-Output "Removing: Your Phone";
 Get-AppxPackage *Microsoft.YourPhone* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Alarms and clocks";
+Write-Output "Removing: Alarms and clocks";
 Get-AppxPackage *windowsalarms* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Windows mail";
+Write-Output "Removing: Windows mail";
 Get-AppxPackage *windowscommunicationsapps* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: OfficeHub";
+Write-Output "Removing: OfficeHub";
 Get-AppxPackage *OfficeHub* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Get Started";
+Write-Output "Removing: Get Started";
 Get-AppxPackage *getstarted* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Groove Music";
+Write-Output "Removing: Groove Music";
 Get-AppxPackage *zunemusic* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Maps";
+Write-Output "Removing: Maps";
 Get-AppxPackage *windowsmaps* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Netflix";
+Write-Output "Removing: Netflix";
 Get-AppxPackage Netflix* -AllUsers | Remove-AppxPackage;
 testLast
 
-echo "Removing: Deezer Music";
+Write-Output "Removing: Deezer Music";
 Get-AppxPackage *Deezer* -AllUsers | Remove-AppxPackage;
 testLast
 
@@ -109,27 +109,27 @@ Set-ItemProperty $key Hidden 1
 Set-ItemProperty $key HideFileExt 0
 Set-ItemProperty $key ShowSuperHidden 1
 Stop-Process -processname explorer
-echo "Hidden folders, filename extensions and superhidden are now visible"
+Write-Output "Hidden folders, filename extensions and superhidden are now visible"
 Start-Sleep -s 2
 
-echo "Setting dark mode"
+Write-Output "Setting dark mode"
 New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
 testLast
 Start-Sleep -s 1
 
-echo "opening display settings"
+Write-Output "opening display settings"
 start ms-settings:display
 
-echo "opening performance settings"
+Write-Output "opening performance settings"
 SystemPropertiesPerformance.exe
-echo " [ ]`n [ ]`n [x]`n [x]`n [ ]`n [x]`n [x]`n [ ]`n [ ]`n [ ]`n [x]`n [ ]`n [ ]`n [x]`n [x]`n [x]`n [ ]`n"
+Write-Output " [ ]`n [ ]`n [x]`n [x]`n [ ]`n [x]`n [x]`n [ ]`n [ ]`n [ ]`n [x]`n [ ]`n [ ]`n [x]`n [x]`n [x]`n [ ]`n"
 
-echo "opening battery settings"
+Write-Output "opening battery settings"
 control powercfg.cpl
 
 
 #Download and start Ninite:
-echo "Initiating Ninite"
+Write-Output "Initiating Ninite"
 
 $URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-everything-foobar-greenshot-spotify-vlc-winrar-winscp-skype-notepadplusplus/ninite.exe"
 $DATE = Get-Date -Format "MMddyy"
@@ -147,4 +147,3 @@ $FILENAME = "$DATE-Brave-Setup.exe"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
 start $HOME\Downloads\$FILENAME
-
