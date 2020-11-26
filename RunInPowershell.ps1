@@ -104,6 +104,8 @@ $REBOOT | Set-Content $Home\Documents\"Reboot.bat"
 
 # ---
 
+
+# Changes to explorer
 $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
 Set-ItemProperty $key Hidden 1
 Set-ItemProperty $key HideFileExt 0
@@ -112,37 +114,70 @@ Stop-Process -processname explorer
 Write-Output "Hidden folders, filename extensions and superhidden are now visible"
 Start-Sleep -s 2
 
+# Dark mode
 Write-Output "Setting dark mode"
 New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
 testLast
 Start-Sleep -s 1
 
+
+# ---
+
+
+# Displaysettings
 Write-Output "opening display settings"
 start ms-settings:display
 
+# Performance setttings
 Write-Output "opening performance settings"
 SystemPropertiesPerformance.exe
 Write-Output "--- USE THESE SETTINGS ---`n`n [ ]`tAnimate Controls and elements inside windows`n [ ]`tAnimate windwos when minimising and maximising`n [x]`tAnimations in the taskbar`n [x]`tEnable Peek`n [ ]`tFade or slide menus into view`n [x]`tFade or slide ToolTips into view`n [x]`tFade out menu items after clicking`n [ ]`tSave taskbar thumbnail previews`n [ ]`tShow shadows under mouse pointer`n [ ]`tShow shadows under windows`n [x]`tShow thumbnails instead of icons`n [ ]`tShow translucendt selection rectangle`n [ ]`tShow window content when dragging`n [x]`tSlide open combo boxes`n [x]`tSmooth edges of screen fonts`n [x]`tSmooth-scroll list boxes`n [ ]`tUse drop shadows for icon labels on the desktop`n"
-Write-Output "opening battery settings"
-control powercfg.cpl
+
+
+
+# ---
+
+
+$DownloadDestination = "$HOME\Downloads\JM_setup"
+If(!(Test-Path $DownloadDestination))
+{
+      New-Item -ItemType Directory -Path $DownloadDestination
+
+}
+
+$DATE = Get-Date -Format "MMddyy"
 
 
 #Download and start Ninite:
 Write-Output "Initiating Ninite"
 
-$URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-everything-foobar-greenshot-spotify-vlc-winrar-winscp-skype-notepadplusplus/ninite.exe"
-$DATE = Get-Date -Format "MMddyy"
-$FILENAME = "$DATE-Ninite_JM_Sane_Defaults" 
-$OUTPUT = "$HOME\Downloads\$FILENAME.exe"
+$URL = "https://ninite.com/.net4.8-adoptjavax11-chrome-foobar-greenshot-spotify-vlc-winrar-winscp-skype-notepadplusplus/ninite.exe"
+$FILENAME = "$DATE - Ninite_JM_Sane_Defaults.exe" 
+$OUTPUT = "$DownloadDestination\$FILENAME"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
-start $HOME\Downloads\$FILENAME
+Invoke-Item $DownloadDestination\$FILENAME
+
 
 
 #Download and start Brave browser installation:
 Write-Output "Installing Brave Browser"
+
 $URL = "https://laptop-updates.brave.com/latest/winx64"
-$FILENAME = "$DATE-Brave-Setup.exe"
+$FILENAME = "$DATE - Brave_Setup.exe"
+$OUTPUT = "$DownloadDestination\$FILENAME"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
-start $HOME\Downloads\$FILENAME
+Invoke-Item $DownloadDestination\$FILENAME
+
+
+
+#Download and start Voidtools Everything installation:
+Write-Output "Installing Voidtools Everything"
+
+$URL = "https://www.voidtools.com/Everything-1.4.1.999.x64-Setup.exe"
+$FILENAME = "$DATE - Everything_setup.exe"
+$OUTPUT = "$DownloadDestination\$FILENAME"
+
+Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
+Invoke-Item $DownloadDestination\$FILENAME
