@@ -149,7 +149,6 @@ Function ShowTrayIcons {
 ShowTrayIcons
 
 
-
 # Show Control panel shortcut on desktop
 Function ShowControlPanelOnDesktop {
 	Write-Output "Showing Control panel shortcut on desktop..."
@@ -163,6 +162,14 @@ Function ShowControlPanelOnDesktop {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -Type DWord -Value 0
 }
 ShowControlPanelOnDesktop
+
+
+# Show small icons in taskbar
+Function ShowSmallTaskbarIcons {
+	Write-Output "Showing small icons in taskbar..."
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarSmallIcons" -Type DWord -Value 1
+}
+ShowSmallTaskbarIcons
 
 
 # End Disassembler0 code
