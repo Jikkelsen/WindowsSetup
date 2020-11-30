@@ -133,6 +133,9 @@ Write-Output "opening performance settings"
 SystemPropertiesPerformance.exe
 Write-Output "--- USE THESE SETTINGS ---`n`n [ ]`tAnimate Controls and elements inside windows`n [ ]`tAnimate windwos when minimising and maximising`n [x]`tAnimations in the taskbar`n [x]`tEnable Peek`n [ ]`tFade or slide menus into view`n [x]`tFade or slide ToolTips into view`n [x]`tFade out menu items after clicking`n [ ]`tSave taskbar thumbnail previews`n [ ]`tShow shadows under mouse pointer`n [ ]`tShow shadows under windows`n [x]`tShow thumbnails instead of icons`n [ ]`tShow translucendt selection rectangle`n [ ]`tShow window content when dragging`n [x]`tSlide open combo boxes`n [x]`tSmooth edges of screen fonts`n [x]`tSmooth-scroll list boxes`n [ ]`tUse drop shadows for icon labels on the desktop`n"
 
+# Clipboard history
+Write-Output "Enabling clipboard history"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Clipboard" -Name "EnableClipboardHistory" -Type DWord -Value 1
 
 # ---
 # Special thanks to 
@@ -176,7 +179,7 @@ ShowSmallTaskbarIcons
 
 
 # ---
-
+#PROGRAMS
 
 $DownloadDestination = "$HOME\Downloads\JM_setup"
 If(!(Test-Path $DownloadDestination))
