@@ -134,6 +134,21 @@ SystemPropertiesPerformance.exe
 Write-Output "--- USE THESE SETTINGS ---`n`n [ ]`tAnimate Controls and elements inside windows`n [ ]`tAnimate windwos when minimising and maximising`n [x]`tAnimations in the taskbar`n [x]`tEnable Peek`n [ ]`tFade or slide menus into view`n [x]`tFade or slide ToolTips into view`n [x]`tFade out menu items after clicking`n [ ]`tSave taskbar thumbnail previews`n [ ]`tShow shadows under mouse pointer`n [ ]`tShow shadows under windows`n [x]`tShow thumbnails instead of icons`n [ ]`tShow translucendt selection rectangle`n [ ]`tShow window content when dragging`n [x]`tSlide open combo boxes`n [x]`tSmooth edges of screen fonts`n [x]`tSmooth-scroll list boxes`n [ ]`tUse drop shadows for icon labels on the desktop`n"
 
 
+# ---
+# Special thanks to 
+# Credit to Disassembler0 at https://github.com/Disassembler0/Win10-Initial-Setup-Script/
+
+Function ShowTrayIcons {
+	Write-Output "Showing all tray icons..."
+	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer")) {
+		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoAutoTrayNotify" -Type DWord -Value 1
+}
+ShowTrayIcons
+
+# End Disassembler0 code
+
 
 # ---
 
