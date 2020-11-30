@@ -138,6 +138,7 @@ Write-Output "--- USE THESE SETTINGS ---`n`n [ ]`tAnimate Controls and elements 
 # Special thanks to 
 # Credit to Disassembler0 at https://github.com/Disassembler0/Win10-Initial-Setup-Script/
 
+# Show all tray icons
 Function ShowTrayIcons {
 	Write-Output "Showing all tray icons..."
 	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer")) {
@@ -146,6 +147,23 @@ Function ShowTrayIcons {
 	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoAutoTrayNotify" -Type DWord -Value 1
 }
 ShowTrayIcons
+
+
+
+# Show Control panel shortcut on desktop
+Function ShowControlPanelOnDesktop {
+	Write-Output "Showing Control panel shortcut on desktop..."
+	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
+		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Force | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -Type DWord -Value 0
+	If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel")) {
+		New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Force | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" -Type DWord -Value 0
+}
+ShowControlPanelOnDesktop
+
 
 # End Disassembler0 code
 
