@@ -230,23 +230,9 @@ Start-Sleep -s 2
 # Program configs
 
 # Greenshot
-
-ScreenShotDesitination = "$HOME\Pictures\SS"
+$ScreenShotDestination = "$HOME\Pictures\SS"
 If(!(Test-Path $ScreenShotDestination))
 {
       New-Item -ItemType Directory -Path $ScreenShotDestination
 }
-
-$URL = "https://raw.githubusercontent.com/Jikkelsen/WindowsSetup/master/Greenshot.ini"
-$FILENAME = "Greenshot.ini"
-
-If(!(Test-Path $env:APPDATA\Greenshot))
-{
-      New-Item -ItemType Directory -Path $env:APPDATA\Greenshot
-}
-
-$OUTPUT = "$env:APPDATA\Greenshot\$FILENAME"
-
-Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
-Start-Sleep -s 2
-
+#TODO: finish this	
