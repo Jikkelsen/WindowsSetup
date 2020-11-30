@@ -185,7 +185,6 @@ $DownloadDestination = "$HOME\Downloads\JM_setup"
 If(!(Test-Path $DownloadDestination))
 {
       New-Item -ItemType Directory -Path $DownloadDestination
-
 }
 
 $DATE = Get-Date -Format "MMddyy"
@@ -225,3 +224,29 @@ $OUTPUT = "$DownloadDestination\$FILENAME"
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
 Invoke-Item $DownloadDestination\$FILENAME
 Start-Sleep -s 2
+
+
+# ---
+# Program configs
+
+# Greenshot
+
+ScreenShotDesitination = "$HOME\Pictures\SS"
+If(!(Test-Path $ScreenShotDestination))
+{
+      New-Item -ItemType Directory -Path $ScreenShotDestination
+}
+
+$URL = "https://raw.githubusercontent.com/Jikkelsen/WindowsSetup/master/Greenshot.ini"
+$FILENAME = "Greenshot.ini"
+
+If(!(Test-Path $env:APPDATA\Greenshot))
+{
+      New-Item -ItemType Directory -Path $env:APPDATA\Greenshot
+}
+
+$OUTPUT = "$env:APPDATA\Greenshot\$FILENAME"
+
+Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
+Start-Sleep -s 2
+
