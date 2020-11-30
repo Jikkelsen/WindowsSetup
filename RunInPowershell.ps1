@@ -200,7 +200,7 @@ $OUTPUT = "$DownloadDestination\$FILENAME"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
 Invoke-Item $DownloadDestination\$FILENAME
-
+Start-Sleep -s 2
 
 
 #Download and start Brave browser installation:
@@ -212,7 +212,7 @@ $OUTPUT = "$DownloadDestination\$FILENAME"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
 Invoke-Item $DownloadDestination\$FILENAME
-
+Start-Sleep -s 2
 
 
 #Download and start Voidtools Everything installation:
@@ -224,3 +224,4 @@ $OUTPUT = "$DownloadDestination\$FILENAME"
 
 Invoke-WebRequest -Uri $URL -OutFile $OUTPUT
 Invoke-Item $DownloadDestination\$FILENAME
+Start-Sleep -s 2
